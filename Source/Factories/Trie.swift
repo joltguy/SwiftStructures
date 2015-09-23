@@ -29,17 +29,15 @@ public class Trie {
         
         
         var current: TrieNode = root
-        var searchKey: String!
         var wordList: Array<String>! = Array<String>()
-        
         
         while (keyword.length != current.level) {
             
             var childToUse: TrieNode!
-            var searchKey: String = keyword.substringToIndex(current.level + 1)
+            let searchKey: String = keyword.substringToIndex(current.level + 1)
             
             
-            println("looking for prefix: \(searchKey)..")
+            print("looking for prefix: \(searchKey)..")
             
             
             //iterate through any children
@@ -97,15 +95,12 @@ public class Trie {
            return
         }
 
-        
         var current: TrieNode = root
-        var searchKey: String!
-        
         
         while(keyword.length != current.level) {
             
             var childToUse: TrieNode!
-            var searchKey: String = keyword.substringToIndex(current.level + 1)
+            let searchKey: String = keyword.substringToIndex(current.level + 1)
             
             
             //println("current has \(current.children.count) children..")
@@ -127,7 +122,7 @@ public class Trie {
                 
                 childToUse = TrieNode()
                 childToUse.key = searchKey
-                childToUse.level = current.level + 1;
+                childToUse.level = current.level + 1
                 current.children.append(childToUse)
             }
             
@@ -142,8 +137,8 @@ public class Trie {
         //add final end of word check
         if (keyword.length == current.level) {
             current.isFinal = true
-            println("end of word reached!")
-            return;
+            print("end of word reached!")
+            return
         }
         
         
